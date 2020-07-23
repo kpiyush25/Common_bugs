@@ -1,4 +1,4 @@
 # Common_bugs
 This repository contains the solutions of some common bugs encountered.
 
-Refer to the wiki for all info that is here in this repo.
+I always look positively for your suggestions to make this repo even better.
