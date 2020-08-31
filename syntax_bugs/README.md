@@ -20,3 +20,6 @@ You can't have non-default parameters after your default parameters begin.
                                                                                               
          void visualizeTrajectory(const std::string& topic_name, std::vector<Point> trajectory,
                                        const std::string& frame_id = "world", const ColorType& color = ColorType::PINK, const double& size_factor= 0.5);
+
+
+###just a testing ..I'll delete this line soon
