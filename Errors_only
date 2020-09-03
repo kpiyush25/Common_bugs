@@ -1,0 +1,46 @@
+[Dbg] [gazebo_controller_interface.cpp:164] CreatePubsAndSubs() called.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/imu" to ROS topic "firefly/imu".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/ground_truth/imu" to ROS topic "firefly/ground_truth/imu".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/ground_truth/pose" to ROS topic "firefly/ground_truth/pose".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/ground_truth/pose_with_covariance" to ROS topic "firefly/ground_truth/pose_with_covariance".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/ground_truth/position" to ROS topic "firefly/ground_truth/position".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/ground_truth/odometry" to ROS topic "firefly/ground_truth/odometry".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/ground_truth/transform" to ROS topic "firefly/ground_truth/transform".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/odometry_sensor1/pose" to ROS topic "firefly/odometry_sensor1/pose".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/odometry_sensor1/pose_with_covariance" to ROS topic "firefly/odometry_sensor1/pose_with_covariance".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/odometry_sensor1/position" to ROS topic "firefly/odometry_sensor1/position".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/odometry_sensor1/odometry" to ROS topic "firefly/odometry_sensor1/odometry".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/odometry_sensor1/transform" to ROS topic "firefly/odometry_sensor1/transform".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/external_force" to ROS topic "firefly/external_force".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Dbg] [gazebo_ros_interface_plugin.cpp:184] Connecting Gazebo topic "~/firefly/wind_speed" to ROS topic "firefly/wind_speed".
+[Dbg] [gazebo_ros_interface_plugin.cpp:276] GzConnectGazeboToRosTopicMsgCallback() finished.
+[Wrn] [Publisher.cc:185] [Wrn] [Publisher.cc:185] [Wrn] [Publisher.cc:185] [1;33[1;Queue limit reached for topic [Wrn] [Publisher.cc:185] /gazebo/default/firefly/wind_speed, deleting message. [1;This warning is printed only once.33mQueue limit reached for topic [1;33Queue limit reached for topic /gazebo/default/firefly/wind_speed[1;33
+/gazebo/default/firefly/wind_speed33m, deleting message. 33m
+Queue limit reached for topic [1;This warning is printed only once.3333mQueue limit reached for topic This warning is printed only once.[1;33
+mm/gazebo/default/firefly/wind_speedQueue limit reached for topic /gazebo/default/firefly/wind_speedThis warning is printed only once.
+Queue limit reached for topic This warning is printed only once.m[1;, deleting message. 33/gazebo/default/firefly/wind_speedm, deleting message. [1;This warning is printed only once.33m
+[1;
+33m[Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+[Msg] Light plugin loaded for Red light
+[Msg] Light plugin loaded for Green light
+[Msg] Light plugin loaded for Red light
+[Msg] Light plugin loaded for Green light
+[Wrn] [Publisher.cc:185] Queue limit reached for topic /gazebo/default/firefly/joint_states, deleting message. This warning is printed only once.
+[Wrn] [Publisher.cc:185] Queue limit reached for topic /gazebo/default/firefly/motor_speed/0, deleting message. This warning is printed only once.
+[Wrn] [Publisher.cc:185] Queue limit reached for topic /gazebo/default/firefly/ground_truth/imu, deleting message. This warning is printed only once.
+[Wrn] [Publisher.cc:185] Queue limit reached for topic /gazebo/default/firefly/ground_truth/pose, deleting message. This warning is printed only once.
+[Wrn] [Publisher.cc:185] Queue limit reached for topic /gazebo/default/firefly/motor_speed/1, deleting message. This warning is printed only once.
+
