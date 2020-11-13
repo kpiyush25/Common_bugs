@@ -1,4 +1,4 @@
-# Resolving errors while building iars_simulation_tools
+# Resolving errors while building iarc_simulation_tools
 ### Error while building the package for the first time
 * Errors     << iarc_simulation_tools:check /home/piyush/iarc_ws/logs/iarc_simulation_tools/build.check.000.log
   CMake Error: The source directory "/home/piyush/iarc_ws/src/IARC2020/iarc_simulation_tools" does not appear to contain CMakeLists.txt.
