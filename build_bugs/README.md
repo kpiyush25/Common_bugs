@@ -119,7 +119,7 @@ CMake Error:
 
   Target "UUID::UUID" not found.
 
-then similar errors like this were there and then a few warnings and then different errors which were as below:
+### then similar errors like this were there and then a few warnings and then different errors which were as below:
 In file included from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h:25:0,
                  from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:17:
 /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_listeners.h:143:77: note:   cannot convert ‘rotors_hil::kMetersToCm_cm_per_m’ (type ‘const float’) to type ‘const StorageBaseType& {aka const Eigen::MatrixBase<Eigen::Matrix<int, 3, 1> >&}’
@@ -218,7 +218,7 @@ In file included from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_inter
                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   
-  These were the errors in the last:
+  ### These were the errors in the last:
      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    mavlink_dcm_to_quaternion
 /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_state_level_interface.cpp:102:35: error: ‘hil_state_qtrn_msg_ptr’ was not declared in this scope
