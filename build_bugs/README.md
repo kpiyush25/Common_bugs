@@ -38,208 +38,60 @@
 
 
 # 2. Resolving errors while building rotors_simulator
-### (Branch was hil_interface, everything was fine on master)
+### (Branch was feature/fw_hil_rotors, everything was fine on master)
 
-CMake Error at /home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/CMakeLists.txt:96 (target_link_libraries):
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error:
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error:
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error at /home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/CMakeLists.txt:96 (target_link_libraries):
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error at /home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/CMakeLists.txt:92 (target_link_libraries):
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error:
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error:
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error at /home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/CMakeLists.txt:92 (target_link_libraries):
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error at /home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/CMakeLists.txt:80 (target_link_libraries):
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-
-CMake Error:
-  Error evaluating generator expression:
-
-    $<TARGET_PROPERTY:UUID::UUID,INTERFACE_INCLUDE_DIRECTORIES>
-
-  Target "UUID::UUID" not found.
-
-### then similar errors like this were there and then a few warnings and then different errors which were as below:
-In file included from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h:25:0,
-                 from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:17:
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_listeners.h:143:77: note:   cannot convert ‘rotors_hil::kMetersToCm_cm_per_m’ (type ‘const float’) to type ‘const StorageBaseType& {aka const Eigen::MatrixBase<Eigen::Matrix<int, 3, 1> >&}’
-                                         ground_speed_msg->twist.linear.z) * kMetersToCm_cm_per_m;
-                                                                             ^~~~~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_listeners.h: In member function ‘void rotors_hil::HilListeners::PressureCallback(const FluidPressureConstPtr&, rotors_hil::HilData*)’:
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_listeners.h:201:15: error: ‘struct rotors_hil::HilData’ has no member named ‘pressure_abs’; did you mean ‘pressure_alt_m’?
-     hil_data->pressure_abs = pressure_mbar;
-               ^~~~~~~~~~~~
-               pressure_alt_m
-In file included from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:17:0:
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h: At global scope:
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h:105:3: error: ‘mavlink_hil_gps_t’ does not name a type; did you mean ‘mavlink_ck_a’?
-   mavlink_hil_gps_t hil_gps_msg_;
-   ^~~~~~~~~~~~~~~~~
-   mavlink_ck_a
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h:108:3: error: ‘mavlink_hil_sensor_t’ does not name a type
-   mavlink_hil_sensor_t hil_sensor_msg_;
-   ^~~~~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h:130:3: error: ‘mavlink_hil_state_quaternion_t’ does not name a type; did you mean ‘mavlink_dcm_to_quaternion’?
-   mavlink_hil_state_quaternion_t hil_state_qtrn_msg_;
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   mavlink_dcm_to_quaternion
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp: In member function ‘virtual std::vector<mavros_msgs::Mavlink_<std::allocator<void> > > rotors_hil::HilSensorLevelInterface::CollectData()’:
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:89:3: error: ‘mavlink_message_t’ was not declared in this scope
-   mavlink_message_t mmsg;
-   ^~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:89:3: note: suggested alternatives:
-In file included from /opt/ros/melodic/include/mavlink/v2.0/common/../message.hpp:16:0,
-                 from /opt/ros/melodic/include/mavlink/v2.0/common/common.hpp:16,
-                 from /opt/ros/melodic/include/mavconn/mavlink_dialect.h:26,
-                 from /opt/ros/melodic/include/mavros_msgs/mavlink_convert.h:18,
-                 from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h:23,
-                 from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:17:
-/opt/ros/melodic/include/mavlink/v2.0/common/../mavlink_types.h:121:4: note:   ‘mavlink::mavlink_message_t’
- }) mavlink_message_t;
-    ^~~~~~~~~~~~~~~~~
-/opt/ros/melodic/include/mavlink/v2.0/common/../mavlink_types.h:121:4: note:   ‘mavlink::mavlink_message_t’
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:105:5: error: ‘hil_gps_msg_’ was not declared in this scope
-     hil_gps_msg_.time_usec = time_usec;
-     ^~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:105:5: note: suggested alternative: ‘hil_msgs’
-     hil_gps_msg_.time_usec = time_usec;
-     ^~~~~~~~~~~~
-     hil_msgs
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:119:5: error: ‘mavlink_hil_gps_t’ was not declared in this scope
-     mavlink_hil_gps_t* hil_gps_msg_ptr = &hil_gps_msg_;
-     ^~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:119:5: note: suggested alternative: ‘mavlink_ck_a’
-     mavlink_hil_gps_t* hil_gps_msg_ptr = &hil_gps_msg_;
-     ^~~~~~~~~~~~~~~~~
-     mavlink_ck_a
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:119:24: error: ‘hil_gps_msg_ptr’ was not declared in this scope
-     mavlink_hil_gps_t* hil_gps_msg_ptr = &hil_gps_msg_;
-                        ^~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:120:39: error: ‘mmsg’ was not declared in this scope
-     mavlink_msg_hil_gps_encode(1, 0, &mmsg, hil_gps_msg_ptr);
-                                       ^~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:120:39: note: suggested alternative: ‘mag’
-     mavlink_msg_hil_gps_encode(1, 0, &mmsg, hil_gps_msg_ptr);
-                                       ^~~~
-                                       mag
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:120:5: error: ‘mavlink_msg_hil_gps_encode’ was not declared in this scope
-     mavlink_msg_hil_gps_encode(1, 0, &mmsg, hil_gps_msg_ptr);
-     ^~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:131:3: error: ‘hil_sensor_msg_’ was not declared in this scope
-   hil_sensor_msg_.time_usec = time_usec;
-   ^~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:147:3: error: ‘mavlink_hil_sensor_t’ was not declared in this scope
-   mavlink_hil_sensor_t* hil_sensor_msg_ptr = &hil_sensor_msg_;
-   ^~~~~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:147:25: error: ‘hil_sensor_msg_ptr’ was not declared in this scope
-   mavlink_hil_sensor_t* hil_sensor_msg_ptr = &hil_sensor_msg_;
-                         ^~~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:148:40: error: ‘mmsg’ was not declared in this scope
-   mavlink_msg_hil_sensor_encode(1, 0, &mmsg, hil_sensor_msg_ptr);
-                                        ^~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:148:40: note: suggested alternative: ‘mag’
-   mavlink_msg_hil_sensor_encode(1, 0, &mmsg, hil_sensor_msg_ptr);
-                                        ^~~~
-                                        mag
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_sensor_level_interface.cpp:148:3: error: ‘mavlink_msg_hil_sensor_encode’ was not declared in this scope
-   mavlink_msg_hil_sensor_encode(1, 0, &mmsg, hil_sensor_msg_ptr);
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-make[2]: *** [CMakeFiles/rotors_hil_interface.dir/src/hil_sensor_level_interface.cpp.o] Error 1
+Errors     << rotors_gazebo_plugins:make /home/piyush/ros_ws2/logs/rotors_gazebo_plugins/build.make.001.log                                                                                                
+MagneticField.proto: warning: Import quaternion.proto but not used.
+WindSpeedBeta.proto: warning: Import Header.proto but not used.
+In file included from /opt/ros/melodic/include/mavlink/v2.0/ASLUAV/mavlink.h:32:0,
+                 from /home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/include/rotors_gazebo_plugins/gazebo_mavlink_interface.h:69,
+                 from /home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_mavlink_interface.cpp:22:
+/opt/ros/melodic/include/mavlink/v2.0/ASLUAV/ASLUAV.h:263:0: warning: "MAVLINK_MESSAGE_INFO" redefined
+ # define MAVLINK_MESSAGE_INFO {MAVLINK_MESSAGE_INFO_HEARTBEAT, MAVLINK_MESSAGE_INFO_SYS_STATUS, MAVLINK_MESSAGE_INFO_SYSTEM_TIME, MAVLINK_MESSAGE_INFO_PING, MAVLINK_MESSAGE_INFO_CHANGE_OPERATOR_CONTROL, MAVLINK_MESSAGE_INFO_CHANGE_OPERATOR_CONTROL_ACK, MAVLINK_MESSAGE_INFO_AUTH_KEY, MAVLINK_MESSAGE_INFO_LINK_NODE_STATUS, MAVLINK_MESSAGE_INFO_SET_MODE, MAVLINK_MESSAGE_INFO_PARAM_REQUEST_READ, MAVLINK_MESSAGE_INFO_PARAM_REQUEST_LIST, MAVLINK_MESSAGE_INFO_PARAM_VALUE, MAVLINK_MESSAGE_INFO_PARAM_SET, MAVLINK_MESSAGE_INFO_GPS_RAW_INT, MAVLINK_MESSAGE_INFO_GPS_STATUS, MAVLINK_MESSAGE_INFO_SCALED_IMU, MAVLINK_MESSAGE_INFO_RAW_IMU, MAVLINK_MESSAGE_INFO_RAW_PRESSURE, MAVLINK_MESSAGE_INFO_SCALED_PRESSURE, MAVLINK_MESSAGE_INFO_ATTITUDE, MAVLINK_MESSAGE_INFO_ATTITUDE_QUATERNION, MAVLINK_MESSAGE_INFO_LOCAL_POSITION_NED, MAVLINK_MESSAGE_INFO_GLOBAL_POSITION_INT, MAVLINK_MESSAGE_INFO_RC_CHANNELS_SCALED, MAVLINK_MESSAGE_INFO_RC_CHANNELS_RAW, MAVLINK_MESSAGE_INFO_SERVO_OUTPUT_RAW, MAVLINK_MESSAGE_INFO_MISSION_REQUEST_PARTIAL_LIST, MAVLINK_MESSAGE_INFO_MISSION_WRITE_PARTIAL_LIST, MAVLINK_MESSAGE_INFO_MISSION_ITEM, MAVLINK_MESSAGE_INFO_MISSION_REQUEST, MAVLINK_MESSAGE_INFO_MISSION_SET_CURRENT, MAVLINK_MESSAGE_INFO_MISSION_CURRENT, MAVLINK_MESSAGE_INFO_MISSION_REQUEST_LIST, MAVLINK_MESSAGE_INFO_MISSION_COUNT, MAVLINK_MESSAGE_INFO_MISSION_CLEAR_ALL, MAVLINK_MESSAGE_INFO_MISSION_ITEM_REACHED, MAVLINK_MESSAGE_INFO_MISSION_ACK, MAVLINK_MESSAGE_INFO_SET_GPS_GLOBAL_ORIGIN, MAVLINK_MESSAGE_INFO_GPS_GLOBAL_ORIGIN, MAVLI....
+ 
+ ### A lot of similar warnings were there and then a few errors appeared which were :
+ INFO", 311 }, { "UAVCAN_NODE_STATUS", 310 }, { "UTM_GLOBAL_POSITION", 340 }, { "V2_EXTENSION", 248 }, { "VFR_HUD", 74 }, { "VIBRATION", 241 }, { "VICON_POSITION_ESTIMATE", 104 }, { "VIDEO_STREAM_INFORMATION", 269 }, { "VIDEO_STREAM_STATUS", 270 }, { "VISION_POSITION_ESTIMATE", 102 }, { "VISION_SPEED_ESTIMATE", 103 }, { "WHEEL_DISTANCE", 9000 }, { "WIFI_CONFIG_AP", 299 }, { "WIND_COV", 231 }}
+ 
+/home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_mavlink_interface.cpp: In member function ‘void gazebo::GazeboMavlinkInterface::VaneCallback(gazebo::VanePtr&)’:
+/home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_mavlink_interface.cpp:988:3: error: ‘mavlink_hil_extended_t’ was not declared in this scope
+   mavlink_hil_extended_t hil_extended_msg;
+   ^~~~~~~~~~~~~~~~~~~~~~
+/home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_mavlink_interface.cpp:988:3: note: suggested alternative: ‘mavlink_hil_sensor_t’
+   mavlink_hil_extended_t hil_extended_msg;
+   ^~~~~~~~~~~~~~~~~~~~~~
+   mavlink_hil_sensor_t
+/home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_mavlink_interface.cpp:991:3: error: ‘hil_extended_msg’ was not declared in this scope
+   hil_extended_msg.timestamp = world_->SimTime().Double() * 1e6;
+   ^~~~~~~~~~~~~~~~
+/home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_mavlink_interface.cpp:1006:3: error: ‘mavlink_msg_hil_extended_encode_chan’ was not declared in this scope
+   mavlink_msg_hil_extended_encode_chan(1, 200, MAVLINK_COMM_0, &msg, &hil_extended_msg);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/piyush/ros_ws2/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_mavlink_interface.cpp:1006:3: note: suggested alternative: ‘mavlink_msg_hil_sensor_encode_chan’
+   mavlink_msg_hil_extended_encode_chan(1, 200, MAVLINK_COMM_0, &msg, &hil_extended_msg);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   mavlink_msg_hil_sensor_encode_chan
+make[2]: *** [CMakeFiles/rotors_gazebo_mavlink_interface.dir/src/gazebo_mavlink_interface.cpp.o] Error 1
 make[2]: *** Waiting for unfinished jobs....
-In file included from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_interface.h:25:0,
-                 from /home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_state_level_interface.cpp:17:
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_listeners.h: In member function ‘void rotors_hil::HilListeners::GroundSpeedCallback(const TwistStampedConstPtr&, rotors_hil::HilData*)’:
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/include/rotors_hil_interface/hil_listeners.h:143:75: error: no match for ‘operator*’ (operand types are ‘Eigen::Vector3i {aka Eigen::Matrix<int, 3, 1>}’ and ‘const float’)
-     hil_data->gps_vel_cm_per_s = Eigen::Vector3i(ground_speed_msg->twist.linear.x,
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                                         ground_speed_msg->twist.linear.y,
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-                                         ground_speed_msg->twist.linear.z) * kMetersToCm_cm_per_m;
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
-  
-  ### These were the errors in the last:
-     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   mavlink_dcm_to_quaternion
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_state_level_interface.cpp:102:35: error: ‘hil_state_qtrn_msg_ptr’ was not declared in this scope
-   mavlink_hil_state_quaternion_t* hil_state_qtrn_msg_ptr = &hil_state_qtrn_msg_;
-                                   ^~~~~~~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_state_level_interface.cpp:103:50: error: ‘mmsg’ was not declared in this scope
-   mavlink_msg_hil_state_quaternion_encode(1, 0, &mmsg, hil_state_qtrn_msg_ptr);
-                                                  ^~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_state_level_interface.cpp:103:3: error: ‘mavlink_msg_hil_state_quaternion_encode’ was not declared in this scope
-   mavlink_msg_hil_state_quaternion_encode(1, 0, &mmsg, hil_state_qtrn_msg_ptr);
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/piyush/ros_ws2/src/rotors_simulator/rotors_hil_interface/src/hil_state_level_interface.cpp:103:3: note: suggested alternative: ‘mavlink_dcm_to_quaternion’
-   mavlink_msg_hil_state_quaternion_encode(1, 0, &mmsg, hil_state_qtrn_msg_ptr);
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   mavlink_dcm_to_quaternion
-make[2]: *** [CMakeFiles/rotors_hil_interface.dir/src/hil_state_level_interface.cpp.o] Error 1
-make[1]: *** [CMakeFiles/rotors_hil_interface.dir/all] Error 2
+make[1]: *** [CMakeFiles/rotors_gazebo_mavlink_interface.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
 make: *** [all] Error 2
-cd /home/piyush/ros_ws2/build/rotors_hil_interface; catkin build --get-env rotors_hil_interface | catkin env -si  /usr/bin/make --jobserver-fds=6,7 -j; cd -
-...........................................................................................................................................................................................................
-Failed     << rotors_hil_interface:make            [ Exited with code 2 ]                                                                                                                                  
-Failed    <<< rotors_hil_interface                 [ 7.7 seconds ]       
 
-## Still finding!
+## Solution:
+1. In CMakeLists.txt, I commented the lines from 431 to 441(putting '#' before the line comments the sentence in this language) which were : 
+
+ Note that this library includes TWO .cpp files.
+    add_library(rotors_gazebo_mavlink_interface SHARED src/gazebo_mavlink_interface.cpp src/geo_mag_declination_tmp.cpp)
+    target_link_libraries(rotors_gazebo_mavlink_interface ${target_linking_LIBRARIES}  ${mav_msgs})
+    add_dependencies(rotors_gazebo_mavlink_interface ${catkin_EXPORTED_TARGETS} ${mavros_EXPORTED_TARGETS} ${mavros_msgs_EXPORTED_TARGETS})
+    list(APPEND targets_to_install rotors_gazebo_mavlink_interface)
+
+    Note that this library includes TWO .cpp files.
+    add_library(rotors_gazebo_mavlink_interface_tmp SHARED src/gazebo_mavlink_interface_tmp.cpp src/geo_mag_declination_tmp.cpp)
+    target_link_libraries(rotors_gazebo_mavlink_interface_tmp ${target_linking_LIBRARIES}  ${mav_msgs})
+    add_dependencies(rotors_gazebo_mavlink_interface_tmp ${catkin_EXPORTED_TARGETS} ${mavros_EXPORTED_TARGETS} ${mavros_msgs_EXPORTED_TARGETS})
+    list(APPEND targets_to_install rotors_gazebo_mavlink_interface_tmp)
+   
+   I'll add the reason for the same later.
+ 2. In gazebo_wind_beta_plugin.cpp, a new line was added `using namespace std::complex_literals;` because errors related to complex numbers were also coming.
+ 
+ And then I was able to build the same:)
