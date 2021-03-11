@@ -95,3 +95,32 @@ make: *** [all] Error 2
  2. In gazebo_wind_beta_plugin.cpp, a new line was added `using namespace std::complex_literals;` because errors related to complex numbers were also coming.
  
  And then I was able to build the same:)
+ 
+ 
+# 2. Resolving errors while building Offboard (Map_generation repo)
+ 
+ 
+ Errors     << Offboard:make /home/piyush/ros_ws/logs/Offboard/build.make.006.log                                                                                                             
+/home/piyush/ros_ws/src/Offboard/src/node1.cpp:1:10: fatal error: Offboard/node1.hpp: No such file or directory
+ #include <Offboard/node1.hpp>
+          ^~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/rosco_node.dir/src/node1.cpp.o] Error 1
+make[1]: *** [CMakeFiles/rosco_node.dir/all] Error 2
+make: *** [all] Error 2
+cd /home/piyush/ros_ws/build/Offboard; catkin build --get-env Offboard | catkin env -si  /usr/bin/make --jobserver-fds=6,7 -j; cd -
+
+
+### Situation:
+
+Initially there was no include directory and hence no hpp files. After making an include directory and hence hpp files, I got this error.
+
+## Solution:
+
+`include_directories(include ${catkin_INCLUDE_DIRS})` 
+
+this needs to be added in CMakeLists.txt after 
+
+`find_package(catkin REQUIRED COMPONENTS ...)` 
+
+so that the cpp file can track the includePath.
