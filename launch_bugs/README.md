@@ -281,4 +281,4 @@ The traceback for the exception was written to the log file
 
 ### Solution:
 
-This launch file was created for the first time so the workspace needed to be sourced. I was launching it without sourcing it and hence was getting that error. Once I opened a new terminal(which is equivalent to sourcing if you have already added the source command in bashrc file). Very simple bug but it's good track of every single bug :)
+This launch file was created for the first time so the workspace needed to be sourced. I was launching it without sourcing it and hence was getting that error. Once I opened a new terminal(which is equivalent to sourcing if you have already added the source command in bashrc file). Very simple bug but it's good keep track of every single bug :)
