@@ -272,3 +272,13 @@ The traceback for the exception was written to the log file`
 So this was resolved once I removed the arg related to the world_name as it was shown in the error (and one of those lines was `<arg name="world_name" default="default"/>` )
 
 And now it was working fine:)
+
+# Resolving error while launching box_detector
+
+piyush@piyush-Nitro-AN515-54:~/drdo_ws/src/inter_iit_dgre_voad$ roslaunch box_detector default.launch
+RLException: [default.launch] is neither a launch file in package [box_detector] nor is [box_detector] a launch file name
+The traceback for the exception was written to the log file
+
+### Solution:
+
+This launch file was created for the first time so the workspace needed to be sourced. I was launching it without sourcing it and hence was getting that error. Once I opened a new terminal(which is equivalent to sourcing if you have already added the source command in bashrc file). Very simple bug but it's good track of every single bug :)
