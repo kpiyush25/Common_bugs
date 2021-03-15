@@ -68,3 +68,29 @@ for (uint i = 0; i < starting_markers_.size(); i++) {
  
  starting_markers_.markers.clear();`
     
+    
+## Error3
+
+Errors     << Offboard:make /home/piyush/ros_ws/logs/Offboard/build.make.001.log                                                                                                                                           
+/home/piyush/ros_ws/src/Offboard/src/node1.cpp: In member function ‘void MapGenerator::init(ros::NodeHandle&)’:
+/home/piyush/ros_ws/src/Offboard/src/node1.cpp:4:85: error: invalid use of non-static member function ‘void MapGenerator::state_cb(const ConstPtr&)’
+
+     state_sub_ = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb, this);
+     
+                                                                                     ^
+
+In file included from /home/piyush/ros_ws/src/Offboard/src/node1.cpp:1:0:
+/home/piyush/ros_ws/src/Offboard/include/Offboard/node1.hpp:10:10: note: declared here
+     void state_cb(const mavros_msgs::State::ConstPtr& msg);
+     
+     
+## Solution: 
+
+`state_sub_ = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb, this);`
+
+was changed to
+
+
+`state_sub_ = nh.subscribe<mavros_msgs::State>("mavros/state", 10, &MapGenerator::state_cb, this);`
+
+and it was resolved. 
