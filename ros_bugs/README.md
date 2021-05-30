@@ -63,10 +63,9 @@ Command used: `roslaunch talker-listener talker-listener_node`
 
 Terminal Output:
 
-`
-[talker-2] process has finished cleanly
+``[talker-2] process has finished cleanly
+log file: /home/user_name/.ros/log/fd72e3ca-c15f-11eb-abbe-d0abd521f44e/talker-2*.log``
 
-log file: /home/piyush/.ros/log/fd72e3ca-c15f-11eb-abbe-d0abd521f44e/talker-2*.log`
 
 After this the node was being killed automatically.
 
