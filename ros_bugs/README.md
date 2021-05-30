@@ -55,3 +55,24 @@ then
 `sudo apt-get upgrade`
 then `sudo apt-get install ros-melodic-desktop-full`
 And the error was resolved
+
+
+## Issue 2
+
+Command used: `roslaunch talker-listener talker-listener_node`
+
+Terminal Output:
+
+`
+[talker-2] process has finished cleanly
+
+log file: /home/piyush/.ros/log/fd72e3ca-c15f-11eb-abbe-d0abd521f44e/talker-2*.log`
+
+After this the node was being killed automatically.
+
+(Took a lot of time to debug and what we found was embarassing, that person had 
+put `return 0;` in the while loop itself whose condition is `ros::ok()`)
+
+Solution : Remove that `return 0;` line from while loop ;-;
+
+       
