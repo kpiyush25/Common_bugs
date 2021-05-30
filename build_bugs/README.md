@@ -124,3 +124,23 @@ this needs to be added in CMakeLists.txt after
 `find_package(catkin REQUIRED COMPONENTS ...)` 
 
 so that the cpp file can track the includePath.
+
+
+# 3 Build error due to wrong name of the package
+
+Terminal Output:
+
+`Errors     << talker-listener:make /home/piyush/y20_ws/logs/talker-listener/build.make.021.log                                                                                               
+ERROR:  
+ERROR: package name 'talker-listener' is illegal and cannot be used in message generation.
+Please see http://ros.org/wiki/Names
+make[2]: *** [/home/piyush/y20_ws/devel/.private/talker-listener/lib/python2.7/dist-packages/talker-listener/msg/_custom_message.py] Error 2
+make[1]: *** [CMakeFiles/talker-listener_generate_messages_py.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2
+cd /home/piyush/y20_ws/build/talker-listener; catkin build --get-env talker-listener | catkin env -si  /usr/bin/make --jobserver-fds=6,7 -j; cd -
+.............................................................................................................................................................................................
+Failed     << talker-listener:make           [ Exited with code 2 ]                                                                                                                          
+Failed    <<< talker-listener                [ 5.7 seconds ]                                                                                                     `
+
+Solution: Change the name of the package to talker_listener. '-' is not allowed in the package name while using message_generation as written clearly in the error.
