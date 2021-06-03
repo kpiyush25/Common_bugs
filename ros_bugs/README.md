@@ -75,3 +75,16 @@ put `return 0;` in the while loop itself whose condition is `ros::ok()`)
 Solution : Remove that `return 0;` line from while loop ;-;
 
        
+## Issue 3
+Command used: `rosmake rl_experiment`
+
+Termianl Output: 
+`[ rosmake ] rosmake starting...                                                 
+[ rosmake ] Packages requested are: ['rl_experiment']                           
+[ rosmake ] Logging to directory /home/piyush/.ros/rosmake/rosmake_output-20210603-180510
+[ rosmake ] Expanded args ['rl_experiment'] to:
+[]                              
+[ rosmake ] WARNING: The following args could not be parsed as stacks or packages: ['rl_experiment']
+[ rosmake ] ERROR: No arguments could be parsed into valid package or stack names.`
+
+Solution: the export path to the package was not correct in bachrc. Corrected one was `export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:~/rl_ws/src/rl-texplore-ros-pkg`
