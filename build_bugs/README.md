@@ -144,3 +144,46 @@ Failed     << talker-listener:make           [ Exited with code 2 ]
 Failed    <<< talker-listener                [ 5.7 seconds ]                                                                                                     `
 
 Solution: Change the name of the package to talker_listener. '-' is not allowed in the package name while using message_generation as written clearly in the error.
+
+# 4 Build error due to different CMAKE_PREFIX_PATH
+Terminal Output: 
+
+```
+--------------------------------------------------------------------------------
+WARNING: Your current environment's CMAKE_PREFIX_PATH is different from the
+cached CMAKE_PREFIX_PATH used the last time this workspace was built.
+
+If you want to use a different CMAKE_PREFIX_PATH you should call `catkin clean`
+to remove all references to the previous CMAKE_PREFIX_PATH.
+
+Cached CMAKE_PREFIX_PATH:
+	/home/piyush/y20_ws/devel:/home/piyush/planning_ws/devel:/opt/ros/melodic
+Current CMAKE_PREFIX_PATH:
+	/home/piyush/ros_ws2/devel:/opt/ros/melodic
+--------------------------------------------------------------------------------
+
+[build] Found '1' packages in 0.0 seconds.                                     
+[build] Package table is up to date.                                           
+Starting  >>> rotors_reinforce                                                 
+_______________________________________________________________________________
+Errors     << rotors_reinforce:cmake /home/piyush/rl_ws/logs/rotors_reinforce/build.cmake.005.log
+CMake Error at /opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:83 (find_package):
+  Could not find a package configuration file provided by
+  "rotors_gazebo_plugins" with any of the following names:
+
+    rotors_gazebo_pluginsConfig.cmake
+    rotors_gazebo_plugins-config.cmake
+
+  Add the installation prefix of "rotors_gazebo_plugins" to CMAKE_PREFIX_PATH
+  or set "rotors_gazebo_plugins_DIR" to a directory containing one of the
+  above files.  If "rotors_gazebo_plugins" provides a separate development
+  package or SDK, be sure it has been installed.
+Call Stack (most recent call first):
+  CMakeLists.txt:10 (find_package)
+```
+  
+
+## Solution: 
+
+Well it's clearly written above in the warning that `my current environment's CMAKE_PREFIX_PATH is different from the cached CMAKE_PREFIX_PATH used the last time this workspace was built` but I was failing to notice that warning due to my minimized terminal and I was only focusing on the error. 
+So doing simply `catkin clean` and then rebuilding again using `catkin build` did the job. Such silly things must not happen again that's why I thought to put this little thing here!!
