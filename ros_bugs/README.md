@@ -88,3 +88,18 @@ Termianl Output:
 [ rosmake ] ERROR: No arguments could be parsed into valid package or stack names.`
 
 Solution: the export path to the package was not correct in bachrc. Corrected one was `export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:~/rl_ws/src/rl-texplore-ros-pkg`
+
+## Issue 4
+Command used: `sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras ros-melodic-mavlink python-catkin-tools python-rosinstall-generator`
+
+Terminal Output:
+```
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package ros-melodic-mavros
+E: Unable to locate package ros-melodic-mavros-extras
+```
+Solution: 
+
+Don't know the reason behind it but following the [ros installation procedure](http://wiki.ros.org/melodic/Installation/Ubuntu) again worked for me.
